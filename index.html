@@ -1,0 +1,317 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>  <html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+  <title>Rulers Esport</title>  
+  <style>  
+    html, body {  
+      margin: 0;  
+      padding: 0;  
+      font-family: Arial, sans-serif;  
+      background-color: #121212;  
+      color: white;  
+      overflow-x: hidden;  
+    }  header {  
+  background-color: #363636;  
+  padding: 15px 8px;  
+  position: fixed;  
+  top: 0;  
+  left: 0;  
+  width: 430px;  
+  z-index: 1000;  
+}  
+
+.navbar {  
+  display: flex;  
+  justify-content: space-between;  
+  align-items: center;  
+  flex-wrap: wrap;  
+}  
+
+.logo-text {  
+  display: flex;  
+  align-items: center;  
+  gap: 10px;  
+}  
+
+.logo-text img {  
+  height: 45px;  
+  width: 45px;  
+  border-radius: 50%;  
+  object-fit: cover;  
+}  
+
+.logo-text span {  
+  font-size: 1.4em;  
+  font-weight: bold;  
+}  
+
+.hamburger {  
+  display: none;  
+  flex-direction: column;  
+  cursor: pointer;  
+  border: 1px solid white;  
+  border-radius: 8px;  
+  padding: 6px;  
+}  
+
+.hamburger span {  
+  height: 3px;  
+  width: 20px;  
+  background: white;  
+  margin: 4px 0;  
+}  
+
+.nav-links {  
+  display: flex;  
+  gap: 20px;  
+}  
+
+.nav-links a {  
+  color: white;  
+  text-decoration: none;  
+  padding: 10px 0;  
+  font-weight: bold;  
+}  
+
+@media (max-width: 768px) {  
+  .hamburger {  
+    display: flex;  
+  }  
+
+  .nav-links {  
+    flex-direction: column;  
+    width: 100%;  
+    overflow: hidden;  
+    max-height: 0;  
+    opacity: 0;  
+    transition: max-height 0.8s ease, opacity 0.8s ease;  
+  }  
+
+  .nav-links.active {  
+    max-height: 500px;  
+    opacity: 1;  
+  }  
+}  
+
+.full-logo-section {  
+  width: 100%;  
+  min-height: 100vh;  
+  display: flex;  
+  flex-direction: column;  
+  justify-content: flex-start;  
+  align-items: center;  
+  padding-top: 140px;  
+  text-align: center;  
+}  
+
+.full-logo-section img {  
+  width: 95vw;  
+  max-width: 600px;  
+  height: auto;  
+  object-fit: cover;  
+  margin-bottom: 20px;  
+  opacity: 0;  
+  transform: translateX(100%);  
+  animation: slideIn 1.2s ease-out forwards;  
+}  
+
+.animated-text {  
+  font-size: 2.9rem;  
+  font-weight: bold;  
+  opacity: 0;  
+  transform: translateY(-30px);  
+  animation: fadeDown 2s ease-out forwards;  
+}  
+
+.subtitle-text {  
+  font-size: 1.2rem;  
+  font-weight: 500;  
+  color: #ffffffcc;  
+  margin-top: 10px;  
+  max-width: 90%;  
+}  
+
+.download-btn {  
+  display: inline-block;  
+  margin-top: 20px;  
+  padding: 12px 24px;  
+  color: red;  
+  background-color: transparent;  
+  border: 2px solid red;  
+  border-radius: 10px;  
+  text-decoration: none;  
+  font-weight: bold;  
+  font-size: 1.1rem;  
+  transition: all 0.3s ease;  
+}  
+
+.download-btn:hover {  
+  background-color: rgba(255, 0, 0, 0.1);  
+}  
+
+.download-btn.clicked {  
+  color: green;  
+  background-color: transparent;  
+  border-color: green;  
+}  
+
+.screenshot-section {  
+  background-color: white;  
+  color: black;  
+  padding: 60px 20px;  
+  text-align: center;  
+}  
+
+.screenshot-section h2 {  
+  font-size: 2rem;  
+  margin-bottom: 10px;  
+}  
+
+.screenshot-section p {  
+  font-size: 1rem;  
+  margin-bottom: 30px;  
+  color: #444;  
+}  
+
+.carousel {  
+  position: relative;  
+  max-width: 300px;  
+  margin: 0 auto;  
+  overflow: hidden;  
+}  
+
+.carousel-inner {  
+  display: flex;  
+  transition: transform 0.5s ease-in-out;  
+}  
+
+.carousel-inner img {  
+  min-width: 100%;  
+  height: auto;  
+  object-fit: cover;  
+}  
+
+.carousel-btn {  
+  position: absolute;  
+  top: 50%;  
+  transform: translateY(-50%);  
+  background-color: black;  
+  color: white;  
+  border: none;  
+  font-size: 1.5rem;  
+  padding: 5px 10px;  
+  cursor: pointer;  
+  z-index: 10;  
+}  
+
+.carousel-btn.left {  
+  left: 0;  
+}  
+
+.carousel-btn.right {  
+  right: 0;  
+}  
+
+@keyframes slideIn {  
+  to {  
+    transform: translateX(0);  
+    opacity: 1;  
+  }  
+}  
+
+@keyframes fadeDown {  
+  to {  
+    transform: translateY(0);  
+    opacity: 1;  
+  }  
+}
+
+  </style>  
+</head>  
+<body>  
+  <header>  
+    <div class="navbar">  
+      <div class="logo-text">  
+        <img src="https://iili.io/Kxetzyx.jpg" alt="Logo">  
+        <span>Rulers Esport</span>  
+      </div>  
+      <div class="hamburger" onclick="toggleMenu()">  
+        <span></span>  
+        <span></span>  
+        <span></span>  
+      </div>  
+      <nav class="nav-links" id="menu">  
+        <a href="#">Terms and Conditions</a>  
+        <a href="#">Disclaimer</a>  
+        <a href="#">Privacy Policy</a>  
+        <a href="#">Contact</a>  
+      </nav>  
+    </div>  
+  </header>    <section class="full-logo-section">  
+    <img src="https://iili.io/Kxetzyx.jpg" alt="Animated Logo" />  
+    <div class="animated-text">NO.1 ESPORTS APPLICATION Rulers Esport</div>  
+    <div class="subtitle-text">Win Real Cash Via Playing Mobile Tournaments For Free. Get It Now !</div>  
+    <a href="https://ga-fs.primexop.com/11115/androidBuilds/rulers-esportV1.apk" class="download-btn" onclick="makeGreen(this)" target="_blank">  
+      DOWNLOAD NOW!  
+    </a>  
+  </section>    <section class="screenshot-section">  
+    <h2>APP SCREENSHOT</h2>  
+    <p>Check the screenshots below to get an idea of the app flaw and the features.</p>  
+    <div class="carousel">  
+      <button class="carousel-btn left" onclick="moveSlide(-1)">⬅️</button>  
+      <div class="carousel-inner" id="carousel">  
+        <img src="https://iili.io/KxeyPvn.md.jpg" alt="Screenshot 1">  
+        <img src="https://iili.io/KxeyQjf.md.jpg" alt="Screenshot 2">  
+        <img src="https://iili.io/KxeyLTG.md.jpg" alt="Screenshot 3">  
+      </div>  
+      <button class="carousel-btn right" onclick="moveSlide(1)">➡️</button>  
+    </div>  
+  </section>    <section style="background-color: white; color: black; padding: 60px 20px; text-align: center;">  
+    <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 20px;">FEATURES</h2>  
+    <p style="font-size: 1rem; font-weight: bold; max-width: 700px; margin: 0 auto;">  
+      Rulers Esport Application Will Give You Stage To Play eSports On Your Preferred Portable Games.  
+    </p>  
+    <img src="https://iili.io/FMPmGdg.md.png" alt="Feature Image" style="margin-top: 30px; width: 90%; max-width: 1000px; height: auto;">  
+  </section>    <!-- Contact Us -->    <section style="background-color: #FFFFF7; background-size: cover; background-position: center; padding: 60px 20px; text-align: center;">
+  <div style="background-color: black; padding: 5px 5px; border-radius: 2px;">  
+    <div style="background-color: rgba(255, 255, 255, 0.85); padding: 40px 20px; border-radius: 12px; display: inline-block;">  
+      <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 20px; color: black;">Contact Us</h2>  
+      <p style="font-size: 1.1rem; max-width: 700px; margin: 0 auto; color: black;">  
+        If you have any questions, feedback, or support requests, feel free to contact us at:  
+      </p>  
+      <a href="mailto:stpgcsff@gmail.com"  
+        style="display: inline-block; margin-top: 20px; font-size: 1.2rem; color: purple; border: 2px solid purple; background-color: transparent; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: bold;">  
+        stpgcsff@gmail.com  
+      </a>  
+    </div>  
+  </section>    <!-- Footer Links -->    <section style="background-color: #363636; width: 100vw; margin: 0; padding: 30px 20px; box-sizing: border-box;">  
+    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 30px;">  
+      <a href="terms" style="color: white; text-decoration: none; font-weight: bold;">Terms & Conditions</a>  
+      <a href="privacy" style="color: white; text-decoration: none; font-weight: bold;">Privacy Policy</a>  
+      <a href="disclaimer" style="color: white; text-decoration: none; font-weight: bold;">Disclaimer</a>  
+    </div>
+    </section>
+    <footer style="text-align:center; padding: 5px; color:#fff; font-size: 20px; font-weight: bold;">
+  Rulers Esport All Rights Reserved
+</footer>
+     <script>  
+    function toggleMenu() {  
+      document.getElementById('menu').classList.toggle('active');  
+    }  
+  
+    function makeGreen(button) {  
+      button.classList.add('clicked');  
+    }  
+  
+    let currentIndex = 0;  
+    const slides = document.querySelectorAll('#carousel img');  
+    const totalSlides = slides.length;  
+    const carousel = document.getElementById('carousel');  
+  
+    function moveSlide(direction) {  
+      currentIndex = (currentIndex + direction + totalSlides) % totalSlides;  
+      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;  
+    }  
+  </script>  </body>  
+</html>
